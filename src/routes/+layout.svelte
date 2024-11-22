@@ -20,10 +20,8 @@
 				>
 			</p>
 			<p>
-				Source Code in <Button
-					variant="link"
-					href="https://github.com/lmzses/xcardgenerator"
-					class="p-0">Github</Button
+				Source Code in <Button variant="link" href="https://github.com/lmzses/x-card" class="p-0"
+					>Github</Button
 				>
 			</p>
 		</div>
