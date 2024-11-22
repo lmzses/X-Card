@@ -2,6 +2,11 @@
 	import '../app.css';
 	import { Toaster } from '$lib/components/ui/sonner';
 	import { Button } from '$lib/components/ui/button';
+	import { dev } from '$app/environment';
+
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
+
+	injectAnalytics({ mode: dev ? 'development' : 'production' });
 	let { children } = $props();
 </script>
 
