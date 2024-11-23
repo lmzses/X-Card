@@ -7,11 +7,21 @@
 </script>
 
 <div class="mt-16 px-4">
-	<h3 class="text-2xl font-bold">{stats.name}</h3>
+	<div class="flex items-center">
+		<h3 class="flex items-center text-2xl font-bold">
+			<span>{stats.name}</span>
+			{#if stats.isVerified}
+				<img src="assets/Twitter_Verified_Badge.svg" class="ml-1 h-5 w-5" />
+			{/if}
+			{#if !stats.isVerified && stats.verifiedType === 'Business'}
+				<img src="assets/Twitter_Verified_Badge_Gold.svg" class="ml-1 h-5 w-5" />
+			{/if}
+		</h3>
+	</div>
 	<p class="text-muted-foreground">@{stats.username}</p>
 	<p class="mt-2">{stats.bio}</p>
 
-	<div class="mt-2 flex flex-wrap gap-4 text-muted-foreground">
+	<div class="mt-2 flex flex-wrap items-center gap-2 text-muted-foreground">
 		{#if stats.location}
 			<div class="flex items-center">
 				<MapPin class="mr-1 h-4 w-4" />

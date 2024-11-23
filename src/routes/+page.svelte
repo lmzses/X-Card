@@ -92,12 +92,21 @@
 							alt="Profile Banner"
 							class="h-48 w-full rounded-t-lg object-cover"
 						/>
-						<Avatar
-							class="absolute bottom-0 left-4 h-24 w-24 translate-y-1/2 transform border-4 border-secondary"
-						>
-							<AvatarImage src={stats.avatarUrl} alt={stats.name} />
-							<AvatarFallback>{stats.name.charAt(0)}</AvatarFallback>
-						</Avatar>
+						{#if stats.verifiedType === 'Business'}
+							<Avatar
+								class="absolute bottom-0 left-4 h-24 w-24 translate-y-1/2 transform rounded-lg border-4 border-secondary"
+							>
+								<AvatarImage src={stats.avatarUrl} alt={stats.name} />
+								<AvatarFallback>{stats.name.charAt(0)}</AvatarFallback>
+							</Avatar>
+						{:else}
+							<Avatar
+								class="absolute bottom-0 left-4 h-24 w-24 translate-y-1/2 transform rounded-full border-4 border-secondary"
+							>
+								<AvatarImage src={stats.avatarUrl} alt={stats.name} />
+								<AvatarFallback>{stats.name.charAt(0)}</AvatarFallback>
+							</Avatar>
+						{/if}
 					</div>
 
 					<ProfileInfo {stats} />
