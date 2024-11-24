@@ -41,19 +41,19 @@
 			</div>
 		{/if}
 
-		{#if stats.website}
-			<div class="flex items-center">
-				<Link class="mr-1 h-4 w-4" />
-				<a
-					href={stats.website.startsWith('http') ? stats.website : `https://${stats.website}`}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="text-primary hover:underline"
-				>
-					{stats.website}
-				</a>
-			</div>
-		{/if}
+{#if stats.website}
+    <div class="flex items-center">
+        <Link class="mr-1 h-4 w-4" />
+       <a 
+            href={stats.website.startsWith('http') ? stats.website : `https://${stats.website}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-primary hover:underline"
+        >
+            {stats.website}
+        </a>
+    </div>
+{/if}
 		{#if stats.joinDate}
 			<div class="flex items-center">
 				<Calendar class="mr-1 h-4 w-4" />
