@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { MapPin, Link, Calendar } from 'lucide-svelte';
 	import type { TwitterStats } from '../../types';
+	import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 
 	export let stats: TwitterStats;
 	$: websiteHostname = stats?.website ? new URL(stats.website).hostname.replace(/^www\./, '') : '';
@@ -21,6 +22,12 @@
 			{/if}
 			{#if !stats.isVerified && stats.verifiedType === 'Business'}
 				<img src="assets/Twitter_Verified_Badge_Gold.svg" class="ml-1 h-5 w-5" />
+			{/if}
+			{#if stats.highlightedLabel?.badge?.url}
+				<Avatar class="ml-1 h-5 w-5 rounded border border-secondary">
+					<AvatarImage src={stats.highlightedLabel?.badge?.url} />
+					<AvatarFallback>{stats.highlightedLabel?.badge.description?.charAt(0)}</AvatarFallback>
+				</Avatar>
 			{/if}
 		</h3>
 	</div>

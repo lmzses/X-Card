@@ -55,6 +55,7 @@ export class TwitterDataProcessor {
 			bookmarks: 0,
 			mediaCount: user.media_count ?? 0,
 			isVerified: user.is_blue_verified ?? false,
+			highlightedLabel: user?.highlightedLabel,
 			verifiedType: user.verified_type ?? ''
 		};
 	}

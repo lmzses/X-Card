@@ -14,6 +14,15 @@ export interface TwitterStats {
 	likes: number;
 	bookmarks?: number;
 	mediaCount?: number;
+	highlightedLabel?: {
+		badge?: {
+			url?: string;
+			description: string;
+			userLabelType: string;
+			userLabelDisplayType: string;
+		};
+	};
+
 	isVerified?: boolean;
 	verifiedType?: string;
 }
@@ -34,6 +43,14 @@ export interface UserApiResponse {
 		favourites_count: number;
 		media_count?: number;
 		is_blue_verified?: boolean;
+		highlightedLabel?: {
+			badge?: {
+				url?: string;
+				description: string;
+				userLabelType: string;
+				userLabelDisplayType: string;
+			};
+		};
 		verified_type?: string;
 	};
 }
