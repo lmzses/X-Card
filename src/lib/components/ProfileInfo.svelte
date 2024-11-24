@@ -11,7 +11,11 @@
 		<h3 class="flex items-center text-2xl font-bold">
 			<span>{stats.name}</span>
 			{#if stats.isVerified}
-				<img src="assets/Twitter_Verified_Badge.svg" class="ml-1 h-5 w-5" />
+				{#if stats.verifiedType === 'Government'}
+					<img src="assets/Twitter_Verified_Badge_Gray.svg" class="ml-1 h-5 w-5" />
+				{:else}
+					<img src="assets/Twitter_Verified_Badge.svg" class="ml-1 h-5 w-5" />
+				{/if}
 			{/if}
 			{#if !stats.isVerified && stats.verifiedType === 'Business'}
 				<img src="assets/Twitter_Verified_Badge_Gold.svg" class="ml-1 h-5 w-5" />

@@ -90,7 +90,7 @@
 						<img
 							src={stats.bannerUrl ?? ''}
 							alt="Profile Banner"
-							class="h-48 w-full rounded-t-lg object-cover"
+							class="aspect-auto h-48 w-full rounded-t-lg object-cover"
 						/>
 						{#if stats.verifiedType === 'Business'}
 							<Avatar

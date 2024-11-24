@@ -10,7 +10,7 @@
 	export let onSourceSubmit: (sourceCode: string) => void;
 	export let onUsernameSubmit: (username: string) => Promise<void>;
 
-	let currentMode = 'source';
+	let currentMode = 'username';
 	let sourceCode = '';
 	let username = '';
 	let isLoading = false;
@@ -35,21 +35,9 @@
 
 <Tabs bind:value={currentMode}>
 	<TabsList class="grid w-full grid-cols-2">
-		<TabsTrigger value="source">Source Code</TabsTrigger>
 		<TabsTrigger value="username">Username(Verified)</TabsTrigger>
+		<TabsTrigger value="source">Source Code</TabsTrigger>
 	</TabsList>
-
-	<TabsContent value="source">
-		<form on:submit={handleSourceSubmit} class="space-y-4">
-			<Textarea
-				placeholder="Paste your Twitter/X profile source code here..."
-				bind:value={sourceCode}
-				rows={10}
-			/>
-			<Button type="submit" class="w-full">View Stats</Button>
-		</form>
-	</TabsContent>
-
 	<TabsContent value="username">
 		<form on:submit={handleUsernameSubmit} class="m-auto space-y-4">
 			<div class="space-y-2">
@@ -69,6 +57,17 @@
 					Fetch Stats
 				{/if}
 			</Button>
+		</form>
+	</TabsContent>
+
+	<TabsContent value="source">
+		<form on:submit={handleSourceSubmit} class="space-y-4">
+			<Textarea
+				placeholder="Paste your Twitter/X profile source code here..."
+				bind:value={sourceCode}
+				rows={10}
+			/>
+			<Button type="submit" class="w-full">View Stats</Button>
 		</form>
 	</TabsContent>
 </Tabs>
