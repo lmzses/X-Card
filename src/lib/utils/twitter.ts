@@ -41,7 +41,7 @@ export class TwitterDataProcessor {
 			bannerUrl: user.profile_banner_url,
 			bio: user.description ?? '',
 			location: user.location ?? '',
-			website: user?.entities?.url?.urls?.[0]?.display_url ?? '', // More defensive checking
+			website: user.url ?? '',
 			joinDate: user.created_at
 				? `Joined ${new Date(user.created_at).toLocaleDateString('en-US', {
 						month: 'long',
