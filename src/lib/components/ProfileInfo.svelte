@@ -13,6 +13,8 @@
 			{#if stats.isVerified}
 				{#if stats.verifiedType === 'Government'}
 					<img src="assets/Twitter_Verified_Badge_Gray.svg" class="ml-1 h-5 w-5" />
+				{:else if stats.verifiedType === 'Business'}
+					<img src="assets/Twitter_Verified_Badge_Gold.svg" class="ml-1 h-5 w-5" />
 				{:else}
 					<img src="assets/Twitter_Verified_Badge.svg" class="ml-1 h-5 w-5" />
 				{/if}
