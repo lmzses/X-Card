@@ -4,7 +4,6 @@
 	import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 
 	export let stats: TwitterStats;
-	$: websiteHostname = stats?.website ? new URL(stats.website).hostname.replace(/^www\./, '') : '';
 </script>
 
 <div class="mt-16 px-4">
@@ -51,7 +50,7 @@
 					rel="noopener noreferrer"
 					class="text-primary hover:underline"
 				>
-					{websiteHostname}
+					{stats.website}
 				</a>
 			</div>
 		{/if}

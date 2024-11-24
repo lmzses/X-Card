@@ -34,6 +34,8 @@ export class TwitterDataProcessor {
 	}
 
 	static mapUserToStats(user: any): TwitterStats {
+		// Extract display URL from entities if it exists
+		const displayUrl = user.entities?.url?.urls?.[0]?.display_url || user.url || '';
 		return {
 			name: user?.name ?? 'Unknown',
 			username: user.screen_name ?? 'unknown',
@@ -41,7 +43,7 @@ export class TwitterDataProcessor {
 			bannerUrl: user.profile_banner_url,
 			bio: user.description ?? '',
 			location: user.location ?? '',
-			website: user.url ?? '',
+			website: displayUrl,
 			joinDate: user.created_at
 				? `Joined ${new Date(user.created_at).toLocaleDateString('en-US', {
 						month: 'long',
